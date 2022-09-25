@@ -1,0 +1,22 @@
+{
+    "name": "jeanfprado/laravel-report",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jeanfprado\\LaravelReport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jean Prado",
+            "email": "jeanfprado@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php" : "^7.3|^8.0|^8.1",
+        "barryvdh/laravel-dompdf": "^2.0"
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Report</title>
+
+<head>
+  <style>
+    table {
+      font-family: Verdana, Tahoma, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 10px
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .header {
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <p>Report</p>
+  </div>
+
+  <table>
+    <tr>
+      <th>Row</th>
+    </tr>
+    @foreach($rows as $key)
+    <tr>
+      <td>{{ $value }}</td>
+    </tr>
+    @endforeach
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?php
+
+namespace DummyNamespace;
+
+use Jeanfprado\LaravelReport\Report;
+
+class DummyClass extends Report
+{
+    protected $view = 'DummyView';
+
+    /**
+     * Initializes the Report.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+}
