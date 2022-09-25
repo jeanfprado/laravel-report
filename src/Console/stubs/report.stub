@@ -7,12 +7,12 @@ use Jeanfprado\LaravelReport\Report;
 class DummyClass extends Report
 {
     /**
-     * Initializes the Report.
+     * Return collection to report
      *
-     * @return void
+     * @return mixed
      */
-    public function __construct()
+    public function collection()
     {
-        parent::__construct();
+        //
     }
 }

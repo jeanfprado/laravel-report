@@ -9,12 +9,12 @@ class DummyClass extends Report
     protected $view = 'DummyView';
 
     /**
-     * Initializes the Report.
+     * Return collection to report
      *
-     * @return void
+     * @return mixed
      */
-    public function __construct()
+    public function collection()
     {
-        parent::__construct();
+        //
     }
 }

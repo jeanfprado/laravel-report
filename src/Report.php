@@ -2,23 +2,15 @@
 
 namespace Jeanfprado\LaravelReport;
 
-use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class Report
 {
-    protected $request;
-
     protected $renderType = 'download';
 
     protected $fileName = 'report';
 
     protected $view = '';
-
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
 
     public function render()
     {
@@ -28,6 +20,6 @@ class Report
 
     protected function getData()
     {
-        return $this->toCollection();
+        return $this->collection();
     }
 }
