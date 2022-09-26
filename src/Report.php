@@ -4,22 +4,22 @@ namespace Jeanfprado\LaravelReport;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class Report
+abstract class Report
 {
-    protected $renderType = 'download';
-
     protected $fileName = 'report';
 
-    protected $view = '';
-
-    public function render()
+    public function stream()
     {
-        $pdf = Pdf::loadView($this->view, ['rows' => $this->getData()]);
-        return $pdf->{$this->renderType}("{$this->fileName}.pdf");
+        return $this->pdf()->stream("{$this->fileName}.pdf");
     }
 
-    protected function getData()
+    public function download()
     {
-        return $this->collection();
+        return $this->pdf()->download("{$this->fileName}.pdf");
+    }
+
+    protected function pdf()
+    {
+        return Pdf::loadView($this->view, $this->toArray());
     }
 }

@@ -14,7 +14,7 @@ To use Laravel Report you need create Report class as command:
 ```
 php artisan make:report UsersReport --view=reports.users-report
 ```
-It'll created class
+It is created the report class with a view.
 
 
 ```php
@@ -29,9 +29,11 @@ class UserReport extends Report
 {
     protected $view = 'reports.user-report';
 
-    public function collection()
+    public function toArray()
     {
-        return User::all();
+        return [
+            'users ' => User::all();
+        ];
     }
 }
 ```
@@ -85,10 +87,10 @@ and view
     <th>Name</th>
     <th>Email</th>
     </tr>
-    @foreach($rows as $row)
+    @foreach($users as $user)
     <tr>
-        <td>{{ $row->name }}</td>
-        <td>{{ $row->email }}</td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
     </tr>
     @endforeach
   </table>

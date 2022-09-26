@@ -7,11 +7,11 @@ use Jeanfprado\LaravelReport\Report;
 class DummyClass extends Report
 {
     /**
-     * Return collection to report
+     * Return array to view
      *
      * @return mixed
      */
-    public function collection()
+    public function toArray()
     {
         //
     }

@@ -9,11 +9,11 @@ class DummyClass extends Report
     protected $view = 'DummyView';
 
     /**
-     * Return collection to report
+     * Return array to view
      *
      * @return mixed
      */
-    public function collection()
+    public function toArray()
     {
         //
     }
