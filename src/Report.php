@@ -2,7 +2,7 @@
 
 namespace Jeanfprado\LaravelReport;
 
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade as Pdf;
 
 abstract class Report
 {
