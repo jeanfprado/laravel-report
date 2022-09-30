@@ -12,7 +12,7 @@ class ReportMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $signature = 'make:report {name} {--view=?}';
+    protected $signature = 'make:report {name} {--view=} {--force}';
 
     /**
      * The console command description.
@@ -36,18 +36,7 @@ class ReportMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Reports';
-    }
-
-    /**
-     * Determine if the class already exists.
-     *
-     * @param  string  $rawName
-     * @return bool
-     */
-    protected function alreadyExists($rawName)
-    {
-        return class_exists($rawName);
+        return $rootNamespace . '\Reports';
     }
 
     /**
@@ -105,7 +94,7 @@ class ReportMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__.$stub;
+            : __DIR__ . $stub;
     }
 
     /**
@@ -116,14 +105,14 @@ class ReportMakeCommand extends GeneratorCommand
     protected function writeViewTemplate()
     {
         $path = $this->viewPath(
-            str_replace('.', '/', $this->option('view')).'.blade.php'
+            str_replace('.', '/', $this->option('view')) . '.blade.php'
         );
 
         if (! $this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0755, true);
         }
 
-        $this->files->put($path, file_get_contents(__DIR__.'/stubs/view.stub'));
+        $this->files->put($path, file_get_contents(__DIR__ . '/stubs/view.stub'));
     }
 
     /**
