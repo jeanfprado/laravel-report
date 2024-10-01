@@ -10,16 +10,21 @@ abstract class Report
 
     public function stream()
     {
-        return $this->pdf()->stream("{$this->fileName}.pdf");
+        return $this->pdf()->stream("{$this->fileName()}.pdf");
     }
 
     public function download()
     {
-        return $this->pdf()->download("{$this->fileName}.pdf");
+        return $this->pdf()->download("{$this->fileName()}.pdf");
     }
 
     protected function pdf()
     {
         return Pdf::loadView($this->view, $this->toArray());
+    }
+
+    protected function fileName()
+    {
+        return $this->fileName . '-'. time();
     }
 }
